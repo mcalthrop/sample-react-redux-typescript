@@ -1,5 +1,5 @@
-import { ADD_ARTICLE } from './types';
+import { ADD_ARTICLE, Article } from './types';
 
-export const addArticle = (payload: any) => {
+export const addArticle = (payload: Article) => {
     return { type: ADD_ARTICLE, payload };
 };
