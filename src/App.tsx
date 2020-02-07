@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { ListArticles, AddArticle } from './components/articles';
 
-const App = () => {
+export const App = () => {
   return (
     <>
       <div>
@@ -16,5 +16,3 @@ const App = () => {
     </>
   );
 }
-
-export default App;
