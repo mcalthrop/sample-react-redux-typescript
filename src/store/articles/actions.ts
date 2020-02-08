@@ -1,5 +1,5 @@
-import { ADD_ARTICLE, Article } from './types';
+import { Article, ArticleAction, ArticleActionType } from './types';
 
-export const addArticle = (payload: Article) => {
-    return { type: ADD_ARTICLE, payload };
+export const addArticle = (payload: Article): ArticleAction => {
+    return { type: ArticleActionType.addArticle, payload };
 };

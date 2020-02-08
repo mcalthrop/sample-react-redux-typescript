@@ -1,11 +1,15 @@
-import { ADD_ARTICLE } from './types';
+import { Article, ArticleAction, ArticleActionType } from './types';
 
-const initialState = {
+export interface ArticlesState {
+    articles: Article[];
+}
+
+const initialState: ArticlesState = {
     articles: [],
 };
 
-export const articlesReducer = (state: any = initialState, action: any) => {
-    if (action.type === ADD_ARTICLE) {
+export const articlesReducer = (state: ArticlesState = initialState, action: ArticleAction): ArticlesState => {
+    if (action.type === ArticleActionType.addArticle) {
         return {
             ...state,
             articles: state.articles.concat(action.payload),
