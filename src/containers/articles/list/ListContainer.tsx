@@ -1,23 +1,10 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, { FunctionComponent, useReducer } from 'react';
 
-import { Article } from '../../../store/articles';
+import { ArticlesReducer, articlesReducer } from '../../../store/articles';
 import { ArticlesList } from '../../../components/articles';
 
-interface Props {
-    articles: Article[];
+export const ArticlesListContainer: FunctionComponent = () => {
+    const [articlesState] = useReducer<ArticlesReducer>(articlesReducer, { articles: [] });
+
+    return <ArticlesList articles={articlesState.articles} />;
 }
-
-interface State {
-    articles: Article[];
-}
-
-const mapStateToProps = (state: State): Props => {
-    return { articles: state.articles };
-};
-
-const UnconnectedList = ({ articles }: Props) => {
-    return <ArticlesList articles={articles} />;
-}
-
-export const ArticlesListContainer = connect(mapStateToProps)(UnconnectedList);
